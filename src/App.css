@@ -1,0 +1,98 @@
+/* Bu dosya, yeni login-component için özel stiller içerir */
+
+body {
+  background-color: #f3f4f6;
+  font-family: sans-serif;
+  color: #1f2937;
+}
+
+/* Container'ı ortalamak için */
+.h-screen {
+  height: 100vh;
+}
+
+/* Sol bölümün yuvarlak kenarlarını oluşturmak için */
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+/* Arkaplan renkleri */
+.bg-purple-700 {
+  background-color: #2866d9;
+}
+.bg-purple-800 {
+  background-color: #2144b6;
+}
+
+/* Metin renkleri */
+.text-purple-700 {
+  color: #287bd9;
+}
+.text-gray-100 {
+  background-color: #f3f4f6;
+}
+
+/* Gölge efekti */
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Buton ve Input Geçişleri */
+.transition {
+  transition-property: all;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Diğer yardımcı sınıflar */
+.w-full {
+  width: 100%;
+}
+.max-w-4xl {
+  max-width: 56rem;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.p-12 {
+  padding: 3rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.font-bold {
+  font-weight: 700;
+}
+.text-center {
+  text-align: center;
+}
+.text-sm {
+  font-size: 0.875rem;
+}
+.block {
+  display: block;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
