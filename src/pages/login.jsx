@@ -51,10 +51,10 @@ export function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100 font-sans">
-      <div className="flex w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden">
-        {/* Sol Tarafta Welcome Kısmı */}
-        <div className="flex-1 p-12 flex flex-col justify-center items-center bg-purple-700 text-white rounded-3xl m-4">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 font-sans p-4">
+      <div className="flex flex-col md:flex-row w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden">
+        {/* Sol Tarafta Welcome Kısmı - Mobil ve tabletlerde gizlenir */}
+        <div className="hidden md:flex flex-1 p-12 md:flex-col justify-center items-center bg-purple-700 text-white rounded-3xl m-4">
           <h2 className="text-4xl font-bold mb-4">Hoşgeldiniz</h2>
           <p className="text-center mb-8">
             ARAÇ TAKİP SİSTEMİ
@@ -62,8 +62,8 @@ export function Login() {
         </div>
 
         {/* Sağ Tarafta Login Formu */}
-        <div className="flex-1 p-12 flex flex-col justify-center">
-          <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">Giriş Yap</h2>
+        <div className="flex-1 p-8 md:p-12 flex flex-col justify-center">
+          <h2 className="text-3xl font-bold text-center mb-6 md:mb-10 text-gray-800">Giriş Yap</h2>
           {message && (
             <div
               className={`p-4 mb-4 text-sm rounded-lg ${
