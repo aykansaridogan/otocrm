@@ -17,7 +17,7 @@ export function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://592b9bc15c40.ngrok-free.app/api/login', {
+      const response = await fetch('https://7019f606b1fa.ngrok-free.app/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
