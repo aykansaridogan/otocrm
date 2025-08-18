@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
     Bell,
     Search,
@@ -8,7 +8,6 @@ import {
     Edit,
     Clipboard,
     Settings,
-
     Users,
     Car,
     FileText,
@@ -18,7 +17,6 @@ import {
     Package,
     Sparkles,
     Eye,
-
     ArrowLeft,
     ArrowRight,
     ArrowUp,
@@ -28,8 +26,9 @@ import {
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const NewRepairForm = () => {
-    // State for form fields
+    // Form alanları için state'ler
     const [plate, setPlate] = useState('');
+    const [brand, setBrand] = useState('');
     const [model, setModel] = useState('');
     const [color, setColor] = useState('');
     const [chassisNo, setChassisNo] = useState('');
@@ -41,24 +40,23 @@ const NewRepairForm = () => {
     const [mileageType, setMileageType] = useState('km');
     const [mileage, setMileage] = useState('');
 
-    // Check if the plate input is empty to disable other fields
+    // Plaka girişi boşsa diğer alanları devre dışı bırakmak için kontrol
     const isPlateEmpty = plate.trim() === '';
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Form Submitted!', { plate, model, color, chassisNo, engineNo, engineCapacity, registrationDate, notes, fuelType, mileageType, mileage });
+        // Form gönderimini ele alma mantığı
+        console.log('Form Submitted!', { plate, brand, model, color, chassisNo, engineNo, engineCapacity, registrationDate, notes, fuelType, mileageType, mileage });
     };
 
     return (
         <div className="bg-gray-100 p-8 rounded-2xl shadow-xl w-full max-w-4xl mx-auto font-inter">
-            {/* Tabs for form sections */}
+            {/* Form sekmeleri */}
             <div className="flex border-b border-gray-300 mb-6 space-x-4 text-lg font-semibold text-gray-600">
                 <button className="p-2 border-b-2 border-blue-600 text-blue-600">
                     <Car className="inline mr-2" />
                     Araç
                 </button>
-                {/* Disable other tabs until plate is entered */}
                 <button className={`p-2 border-b-2 border-transparent hover:border-gray-400 transition-colors ${isPlateEmpty ? 'cursor-not-allowed opacity-50' : ''}`} disabled={isPlateEmpty}>
                     <Users className="inline mr-2" />
                     Müşteri
@@ -96,6 +94,18 @@ const NewRepairForm = () => {
 
                 {/* Diğer araç bilgileri */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div>
+                        <label htmlFor="brand" className="block text-sm font-medium text-gray-700 mb-1">Marka</label>
+                        <input
+                            type="text"
+                            id="brand"
+                            name="brand"
+                            value={brand}
+                            onChange={(e) => setBrand(e.target.value)}
+                            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 ${isPlateEmpty ? 'bg-gray-200 text-gray-500 cursor-not-allowed border-gray-300' : 'border-gray-300'}`}
+                            disabled={isPlateEmpty}
+                        />
+                    </div>
                     <div>
                         <label htmlFor="model" className="block text-sm font-medium text-gray-700 mb-1">Model</label>
                         <input
@@ -182,8 +192,8 @@ const NewRepairForm = () => {
                     </div>
                 </div>
 
-                {/* Yakıt Tipi ve Kilometre Sayacı */}
-                <div className="flex flex-col md:flex-row md:space-x-8 space-y-6 md:space-y-0">
+                {/* Yakıt Tipi ve Kilometre Sayacı - Hizalama düzeltildi */}
+                <div className="flex flex-col md:flex-row md:space-x-8 space-y-6 md:space-y-0 md:items-start">
                     <div className="flex-1">
                         <label className="block text-sm font-medium text-gray-700 mb-2">Yakıt Tipi</label>
                         <div className={`flex space-x-4 ${isPlateEmpty ? 'opacity-50' : ''}`}>
@@ -223,11 +233,23 @@ const NewRepairForm = () => {
                                 />
                                 <span className="ml-2 text-gray-700">Elektrik</span>
                             </label>
+                            <label className="inline-flex items-center">
+                                <input
+                                    type="radio"
+                                    name="fuelType"
+                                    value="electric"
+                                    checked={fuelType === 'electric'}
+                                    onChange={(e) => setFuelType(e.target.value)}
+                                    className="form-radio text-blue-600 h-4 w-4"
+                                    disabled={isPlateEmpty}
+                                />
+                                <span className="ml-2 text-gray-700">Hybrid</span>
+                            </label>
                         </div>
                     </div>
                     <div className="flex-1">
                         <label htmlFor="mileage" className="block text-sm font-medium text-gray-700 mb-2">Kilometre sayacı</label>
-                        <div className={`flex items-center space-x-2 ${isPlateEmpty ? 'opacity-50' : ''}`}>
+                        <div className={`flex items-center space-x-1 ${isPlateEmpty ? 'opacity-50' : ''}`}>
                             <input
                                 type="number"
                                 id="mileage"

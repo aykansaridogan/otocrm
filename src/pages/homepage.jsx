@@ -17,6 +17,22 @@ import PersonelYenilemeleri from "../components/sidebaritem/personelyenilemeleri
 
 import HizliSatis from "../components/sidebaritem/hizlisatis";
 import Tamiratlar from "../components/sidebaritem/tamiratlar";
+import Satislar from "../components/sidebaritem/satislar";
+import Musteriler from "../components/sidebaritem/müsteriler";
+import Araclar from "../components/sidebaritem/araclar";
+import AlacaklarRaporu from "../components/utils/alacaklarrapor";
+import TumMusteriler from "../components/utils/tummusteriler";
+import TamiratlarRaporu2 from "../components/utils/tamiratlarraporr";
+import SatislarRaporu2 from "../components/utils/satislarrapor";
+import Teknisyenler from "../components/sidebaritem/teknisyenler";
+import IsOrtaklari from "../components/sidebaritem/isortaklari";
+import HesapDefteri from "../components/sidebaritem/hesapdefteri";
+import Tahsilatlar from "../components/sidebaritem/tahsilatlar";
+import Ayarlar from "../components/sidebaritem/ayarlar";
+import Lisans from "../components/sidebaritem/lisans";
+import Login from "./login";
+
+import Profile from "./profil";
 
 // Yeni tamirat ekleme sayfası için örnek bir bileşen
 // Yeni tamirat ekleme sayfası için örnek bir bileşen
@@ -69,9 +85,55 @@ const Content = ({ activeMenu }) => {
             
         case 'tamiratlar':
             return <Tamiratlar/>;
+
+        case 'satislar':
+            return <Satislar/>;
+
+        case 'musteriler':
+            return <Musteriler/>;
+
+        case 'araclar':
+            return <Araclar/>;
         
+        case 'gelirgiderraporlari':
+            return <AlacaklarRaporu/>;
+        
+        case 'tum_musteriler':
+            return <TumMusteriler/>;
+        
+        case 'tamirat_raporlari':
+            return <TamiratlarRaporu2/>;
+
+        case 'satis_raporlari':
+            return <SatislarRaporu2/>;
+
+        case 'teknisyenler':
+            return <Teknisyenler/>;
+
+        case 'isortaklari':
+            return <IsOrtaklari/>;
+
+        case 'hesapdefteri':
+            return <HesapDefteri/>;
+
+        case 'tahsilatlar':
+            return <Tahsilatlar/>;
+        
+        case 'ayarlar':
+            return <Ayarlar/>;
+
+        
+        case 'profilim':
+            return <Profile/>;
+        case 'lisans':
+            return <Lisans/>;
+
+        case 'dokumanlar':
+    window.open("https://myndos.net/docs/tr/index.html", "_blank");
+    return null;
         default:
             return <DashboardPage />;
+
     }
 };
 
